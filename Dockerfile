@@ -6,6 +6,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
+    ssh \
+    gosu \
     build-essential \
     ca-certificates \
     cmake \
@@ -53,8 +55,8 @@ RUN conda install -y -c conda-forge hydra-core=1.0.6
 RUN conda install -y -c conda-forge huggingface_hub==0.12.0
 RUN conda install -y -c conda-forge pysoundfile=0.10.3.post1
 
-RUN pip install --no-cache-dir pb_bss_eval==0.02
-RUN pip install --no-cache-dir torch_stoi==0.01
+RUN pip install --no-cache-dir pb_bss_eval==0.0.2
+RUN pip install --no-cache-dir torch_stoi==0.1.2
 RUN pip install --no-cache-dir torch_optimizer==0.0.1a12
 RUN pip install --no-cache-dir asteroid-filterbanks==0.4.0
 RUN pip install --no-cache-dir julius==0.2.7

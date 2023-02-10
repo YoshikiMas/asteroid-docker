@@ -13,7 +13,7 @@ build: ## build docker.
 	docker build -t $(IMAGE_TAG) ./
 
 run: ## run docker.
-	docker run -it \
+	docker run -it --gpus all \
 	-e USER_NAME=$(USER_NAME) -e GROUP_NAME=$(GROUP_NAME) \
 	-e LOCAL_UID=$(shell id -u $(USER)) -e LOCAL_GID=$(shell id -g $(USER)) \
 	-v $(HOST_PATH):$(CONTAINER_PATH) \

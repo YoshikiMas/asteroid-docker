@@ -41,19 +41,21 @@ ENV PATH /opt/miniconda3/bin:$PATH
 RUN conda update -n base -c defaults conda
 RUN conda init bash
 
-RUN conda install -y -c intel cython=0.29.32
-RUN conda install -y -c intel numpy=1.22.3
-RUN conda install -y -c intel scipy=1.7.3
-RUN conda install -y -c intel pandas=1.5.1
-
-RUN conda install -y -c pytorch pytorch=1.13.1
-RUN conda install -y -c pytorch torchaudio=0.13.1
+RUN conda install -y -c pytorch -c conda-forge pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6
 RUN conda install -y -c conda-forge pytorch-lightning=1.9.0
+
+RUN conda install -y -c conda-forge numpy=1.24.2
+RUN conda install -y -c conda-forge scipy=1.10.0
+RUN conda install -y -c conda-forge cython=0.29.33
+RUN conda install -y -c conda-forge pandas=1.5.3
+RUN conda install -y -c conda-forge matplotlib=3.6.1
+RUN conda install -y -c conda-forge tqdm=4.62.3
 
 RUN conda install -y -c conda-forge PyYAML=6.0
 RUN conda install -y -c conda-forge hydra-core=1.0.6
 RUN conda install -y -c conda-forge huggingface_hub==0.12.0
 RUN conda install -y -c conda-forge pysoundfile=0.10.3.post1
+RUN conda install -y -c conda-forge librosa=0.8.1
 
 RUN pip install --no-cache-dir pb_bss_eval==0.0.2
 RUN pip install --no-cache-dir torch_stoi==0.1.2

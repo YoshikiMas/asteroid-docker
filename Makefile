@@ -18,6 +18,8 @@ run: ## run docker.
 	-e LOCAL_UID=$(shell id -u $(USER)) -e LOCAL_GID=$(shell id -g $(USER)) \
 	-v $(HOST_PATH):$(CONTAINER_PATH) \
 	-w $(CONTAINER_PATH) \
+	--shm-size 2gb \
+	--memory 64gb \
 	$(IMAGE_TAG) /bin/bash
 
 connect: ## connect newest container
